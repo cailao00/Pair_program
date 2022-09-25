@@ -8,9 +8,6 @@ import java.util.List;
  * @Author cai zefeng
  * @date 2022/9/24
  *
- * calculate -> listSuffixResult
- * calculateNum -> caculateResult
- * getResult -> result
  */
 
 public interface Caculation {

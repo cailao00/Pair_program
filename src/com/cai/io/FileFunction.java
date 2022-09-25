@@ -27,23 +27,21 @@ public class FileFunction {
     }
 
     public Map<Integer,String> readFile(String path){
-        File file =new File(path);
-        Map<Integer,String>map=new HashMap<>();
+        File file = new File(path);
+        Map<Integer, String> map = new HashMap<>();
         try {
-            BufferedReader br = new BufferedReader(new InputStreamReader(new FileInputStream(file), "utf-8"));
+            BufferedReader reader = new BufferedReader(new InputStreamReader(new FileInputStream(file), "utf-8"));
             String temp = null;
-            while ((temp = br.readLine())!=null){
-                map.put(Integer.parseInt(temp.split(". ")[0]), temp.split(". ")[1]);//通过题目的正则表达式". "拆分成Map的键值对
+            while (((temp = reader.readLine()) != null) && (temp.length() > 0)) {
+                map.put(Integer.parseInt(temp.split(". ")[0]), temp.split(". ",-1)[1]);
             }
-        } catch (UnsupportedEncodingException e) {
-            e.printStackTrace();
-        } catch (FileNotFoundException e1) {
-            e1.printStackTrace();
-        }catch (IOException e2){
-            e2.printStackTrace();
+        } catch (UnsupportedEncodingException unsupportedEncodingException) {
+            unsupportedEncodingException.printStackTrace();
+        } catch (FileNotFoundException fileNotFoundException) {
+            fileNotFoundException.printStackTrace();
+        } catch (IOException ioException) {
+            ioException.printStackTrace();
         }
-
-
         return map;
     }
 }

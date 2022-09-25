@@ -1,29 +1,36 @@
 package com.cai.generator;
 
 import com.cai.fraction.Fraction;
+import com.cai.io.FileFunction;
 import com.cai.service.Caculation;
 import com.cai.service.Caculation_1;
 import com.cai.service.DigitalProcessing;
 import com.cai.service.DigitalProcessing_1;
 
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
+/**
+ * @Author cai zefeng
+ * @date 2022/9/25
+ */
+
 public class QuestionsGenerator {
-    public void getQuestions(int count,int number){
+    public void getQuestions(int count,int number) throws IOException {
         DigitalProcessing digitalProcessing = new DigitalProcessing_1();
         Caculation caculation = new Caculation_1();
-        //FileFunction file = new FileFunction();
+        FileFunction file = new FileFunction();
         int temp = 1;
         Fraction answer = null;
         StringBuilder context = new StringBuilder();
         StringBuilder result = new StringBuilder();
-        while(temp < count){    //题目生成数
+        while(temp <= count){    //题目生成数
             int flag = 0;       //是否有左括号 0：无左括号 1：有左括号 2：有右括号
             int flag_1 = 0;     //左括号的位置下标
             String question = ""; //算式
             int symbolNum = (int)(Math.random() * 3 + 1);   //运算符的数目
-            List<Fraction> list = new ArrayList();  //存放表达式
+            List<Fraction> list = new ArrayList<>();  //存放表达式
             for(int i = 1;i <= symbolNum * 2 + 1;i++) {
                 Fraction operation = new Fraction();    //数字 符号
                 Fraction symbolOperation = new Fraction();  //括号
@@ -61,12 +68,12 @@ public class QuestionsGenerator {
             } catch (Exception e) {
                 continue;
             }
-            question = temp + "." + question + "=";
+            question = temp + "." + question + " =";
             context.append(question + System.lineSeparator());
-            result.append(temp + "." + digitalProcessing.getCanonicalFormat(answer) + System.lineSeparator());
+            result.append(temp + ". " + digitalProcessing.getCanonicalFormat(answer) + System.lineSeparator());
             temp++;
         }
-        //file.save("Execrise.txt",context);
-        //file.save("Answer.txt",result);
+        file.saveFile("Execrise.txt",context);
+        file.saveFile("Answer.txt",result);
     }
 }

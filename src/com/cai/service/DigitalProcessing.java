@@ -4,11 +4,8 @@ import com.cai.fraction.Fraction;
 
 /**
  * @Author cai zefeng
- * @date 2022/9/24
+ * @date 2022/9/25
  *
- * getCommonMeasure -> getGreatestCommonDivisor
- * getProperFraction -> getCanonicalFormat
- * getNumber -> getRandomNum
  */
 
 public interface DigitalProcessing {

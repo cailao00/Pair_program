@@ -4,10 +4,7 @@ import com.cai.fraction.Fraction;
 
 /**
  * @Author cai zefeng
- * @date 2022/9/24
- * getCommonMeasure -> getGreatestCommonDivisor
- * getProperFraction -> getCanonicalFormat
- * getNumber -> getRandomNum
+ * @date 2022/9/25
  */
 
 public class DigitalProcessing_1 implements DigitalProcessing{
@@ -40,7 +37,7 @@ public class DigitalProcessing_1 implements DigitalProcessing{
             if(remainder == 0){
                 return quotient + " ";
             }
-            return quotient + " " + remainder + "/" + fraction.getDenominator();
+            return quotient + "'" + remainder + "/" + fraction.getDenominator();
         }
         return fraction.getMolecule() + "/" + fraction.getDenominator();
     }
@@ -65,10 +62,10 @@ public class DigitalProcessing_1 implements DigitalProcessing{
                 symbol = "-";
                 break;
             case 2:
-                symbol = "*";
+                symbol = "×";
                 break;
             case 3:
-                symbol = "/";
+                symbol = "÷";
                 break;
             default:
                 System.out.println("获取符号失败");

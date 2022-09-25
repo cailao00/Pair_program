@@ -10,9 +10,6 @@ import java.util.Stack;
  * @Author cai zefeng
  * @date 2022/9/24
  *
- * calculate -> listSuffixResult
- * calculateNum -> caculateResult
- * getResult -> result
  */
 
 public class Caculation_1 implements Caculation{
@@ -22,8 +19,8 @@ public class Caculation_1 implements Caculation{
             case "+":
             case "-":
                 return 1;
-            case "*":
-            case "/":
+            case "×":
+            case "÷":
                 return 2;
         }
         throw new RuntimeException(symbol + "不是运算符");
@@ -59,7 +56,6 @@ public class Caculation_1 implements Caculation{
             }
             else if(priority(str) > priority(symbolStack.peek())){  //输入的符号的优先级比栈中第一个符号优先级高
                 symbolStack.push(str);
-                continue;
             }
             else {  //if?
                 while(!symbolStack.isEmpty() && !symbolStack.peek().getSymbol().equals("(") && priority(str) <= priority(symbolStack.peek())){
@@ -83,7 +79,6 @@ public class Caculation_1 implements Caculation{
         for(Fraction str:list){
             if(str.getSymbol() == null){
                 caculateStack.push(str);
-                continue;
             }
             else{
                 num_2 = caculateStack.pop();    //栈中的先进后出
@@ -101,9 +96,9 @@ public class Caculation_1 implements Caculation{
                 return new Fraction().addition(num_1,num_2);
             case "-":
                 return new Fraction().subtraction(num_1,num_2);
-            case  "*":
+            case "×":
                 return new Fraction().multiplication(num_1,num_2);
-            case "/":
+            case "÷":
                 return new Fraction().division(num_1,num_2);
         }
         throw new RuntimeException(symbol + "不是运算符");
