@@ -12,7 +12,7 @@ public class Fraction {
     private int denominator;    //分母
     private String symbol;      //符号
 
-    Fraction(){
+    public Fraction(){
 
     }
 

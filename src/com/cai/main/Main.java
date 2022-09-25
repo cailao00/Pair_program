@@ -3,7 +3,7 @@ package com.cai.main;
 import java.util.Scanner;
 
 /**
- * Date 2022/9/23 20:43
+ * Date 2022/9/
  */
 
 public class Main {
@@ -18,7 +18,6 @@ public class Main {
         System.out.println("-e 题目文件 -a 答案文件");
         String text_2 = scanner.nextLine();
         String[] parameter_2 = text_2.split(" ");
-
     }
 }
 
