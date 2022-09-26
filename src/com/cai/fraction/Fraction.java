@@ -88,7 +88,7 @@ public class Fraction {
             return "0";
         }
         else if(molecule % denominator == 0){
-            return molecule / denominator + " ";    //取整数部分
+            return molecule / denominator + "";    //取整数部分
         }
         else {
             return molecule + "/" + denominator;

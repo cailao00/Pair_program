@@ -29,26 +29,14 @@ public class ContrastService_1 implements ContrastService{
 
     @Override
     public void writeResult(String answerFilePath, String actualFilePath) throws IOException {
-        FileFunction fileHandler =new FileFunction();
-        StringBuilder context=new StringBuilder();
-        Map<Integer,String> answerFile=fileHandler.readFile(answerFilePath);
-        Map<Integer,String> actualFile=fileHandler.readFile(actualFilePath);
-        List<List<Integer>> lists=getTitle(answerFile,actualFile);
-        List<Integer> list1=lists.get(0);
-        StringBuffer sb = new StringBuffer();
-        for (Integer str: list1) {
-            sb.append(str).append(",");
-        }
-        String keywordStr = sb.deleteCharAt(sb.length() - 1).toString();
-        List<Integer> list2=lists.get(1);
-        StringBuffer sb1 = new StringBuffer();
-        for (Integer str: list2) {
-            sb1.append(str).append(",");
-        }
-        String keywordStr1 = sb1.deleteCharAt(sb1.length() - 1).toString();
-        String CorrectTitle = "Correct: " + lists.get(0).size() + " (" + keywordStr + ")";
-        String WrongTitle = "Wrong: " + lists.get(1).size() + " (" + keywordStr1 + ")";
-        context.append(CorrectTitle + System.lineSeparator());  //System.lineSeparator()方法返回 "\r\n"
+        FileFunction fileHandler = new FileFunction();
+        StringBuilder context = new StringBuilder();
+        Map<Integer, String> answerFile = fileHandler.readFile(answerFilePath);
+        Map<Integer, String> actualFile = fileHandler.readFile(actualFilePath);
+        List<List<Integer>> lists = getTitle(answerFile, actualFile);
+        String CorrectTitle = "Correct: " + lists.get(0).size() + lists.get(0).toString();
+        String WrongTitle = "Wrong: " + lists.get(1).size() + lists.get(1).toString();
+        context.append(CorrectTitle + System.lineSeparator());
         context.append(WrongTitle + System.lineSeparator());
         fileHandler.saveFile("Grade.txt", context);
     }
